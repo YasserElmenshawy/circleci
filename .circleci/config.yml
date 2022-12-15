@@ -5,11 +5,16 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
+command:
+  print_pipeline_id:
+    steps:
+      -run: echo ${CIRCLE_WORKFLOW_ID}
 jobs:
   save_hello_world_output:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - print_pipeline_id
       - run: echo "hello world" > ~/output.txt
       - persist_to_workspace:
           root: ~/
