@@ -18,9 +18,9 @@ jobs:
             - output.txt
       - run: exit 1
       - run:
-        name: on error
-        command: echo "Hello Error!"
-        when: on_fail
+          name: on error
+          command: echo "Hello Error!"
+          when: on_fail
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
