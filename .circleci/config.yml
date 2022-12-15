@@ -19,10 +19,11 @@ jobs:
   build:
     docker:
       image: cimg/base:2020.01
-      run: 
-        name: "echo an env var that is part of our project"
-          command: |
-            echo $MY_ENV_VAR
+      steps:
+        - run: 
+          name: "echo an env var that is part of our project"
+            command: |
+              echo $MY_ENV_VAR
 workflows:
   # Name the workflow "welcome"
   welcome:
